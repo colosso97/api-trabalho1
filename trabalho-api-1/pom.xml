@@ -8,7 +8,7 @@
 		<version>3.4.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.serratec</groupId>
+	<groupId>org.serratec.backend</groupId>
 	<artifactId>trabalho-api-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>trabalho-api-1</name>
