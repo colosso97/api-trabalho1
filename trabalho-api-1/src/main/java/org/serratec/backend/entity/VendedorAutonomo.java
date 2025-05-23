@@ -13,4 +13,14 @@ import lombok.Setter;
 @PrimaryKeyJoinColumn(name = "id")
 public class VendedorAutonomo extends Vendedor{
 	private Double comissao;
+
+	public Double getComissao() {
+		return comissao;
+	}
+
+	public void setComissao(Double comissao) {
+		this.comissao = comissao;
+	}
+	
+	
 }

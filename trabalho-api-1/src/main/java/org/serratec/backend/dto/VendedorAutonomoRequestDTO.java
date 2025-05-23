@@ -1,15 +1,13 @@
 package org.serratec.backend.dto;
 
+import org.serratec.backend.entity.VendedorAutonomo;
+
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import org.serratec.backend.entity.VendedorAutonomo;
 
-@Getter
-@Setter
+
 public class VendedorAutonomoRequestDTO {
     @NotBlank(message = "O nome do vendedor não pode ser nulo ou vazio.")
     private String nome;
@@ -31,4 +29,38 @@ public class VendedorAutonomoRequestDTO {
         this.salario = vendedorAutonomo.getSalario();
         this.comissao = vendedorAutonomo.getComissao();
     }
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+	public Double getComissao() {
+		return comissao;
+	}
+
+	public void setComissao(Double comissao) {
+		this.comissao = comissao;
+	}
+    
+    
 }

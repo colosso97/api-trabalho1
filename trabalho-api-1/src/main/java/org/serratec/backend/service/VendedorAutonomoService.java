@@ -1,5 +1,9 @@
 package org.serratec.backend.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.serratec.backend.dto.VendedorAutonomoRequestDTO;
 import org.serratec.backend.dto.VendedorAutonomoResponseDTO;
 import org.serratec.backend.entity.VendedorAutonomo;
@@ -7,10 +11,6 @@ import org.serratec.backend.exception.VendedorAutonomoException;
 import org.serratec.backend.repository.VendedorAutonomoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class VendedorAutonomoService {
