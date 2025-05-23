@@ -17,17 +17,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LancamentoVendas {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDate dataVenda;
 	private Double valorVenda;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_vendedor")
 	private Vendedor vendedor;
-	
-
 }
