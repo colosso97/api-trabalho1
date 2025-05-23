@@ -19,7 +19,6 @@ import lombok.Setter;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Vendedor {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
@@ -29,5 +28,4 @@ public abstract class Vendedor {
 
 	@OneToMany(mappedBy = "vendedor")
 	protected List<LancamentoVendas> lancamentoDeVendas;
-	
 }
