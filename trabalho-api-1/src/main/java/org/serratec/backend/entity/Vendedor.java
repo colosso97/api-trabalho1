@@ -28,6 +28,6 @@ public abstract class Vendedor {
 	protected Double salario;
 
 	@OneToMany(mappedBy = "vendedor")
-	protected List<LancamentoDeVendas> lancamentoDeVendas;
+	protected List<LancamentoVendas> lancamentoDeVendas;
 	
 }
