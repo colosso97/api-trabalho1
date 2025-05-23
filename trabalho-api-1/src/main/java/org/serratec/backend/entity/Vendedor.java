@@ -2,6 +2,7 @@ package org.serratec.backend.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Vendedor {
+public class Vendedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
@@ -22,6 +23,7 @@ public abstract class Vendedor {
 	protected String email;
 	protected Double salario;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy = "vendedor")
 	protected List<LancamentoVendas> lancamentoDeVendas;
 

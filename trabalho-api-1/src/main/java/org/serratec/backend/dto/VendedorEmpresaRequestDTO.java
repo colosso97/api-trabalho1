@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import org.serratec.backend.entity.VendedorEmpresa;
 
 public class VendedorEmpresaRequestDTO {
     @NotBlank(message = "O nome do vendedor não pode ser nulo ou vazio.")
@@ -22,6 +23,9 @@ public class VendedorEmpresaRequestDTO {
 
     @NotNull(message = "O número da carteira de trabalho do vendedor não pode ser nulo.")
     private Integer numeroCarteiraTrabalho;
+  
+  public VendedorEmpresaRequestDTO(){
+  }
 
     public VendedorEmpresaRequestDTO(VendedorEmpresa vendedorEmpresa) {
         this.nome = vendedorEmpresa.getNome();
@@ -61,6 +65,4 @@ public class VendedorEmpresaRequestDTO {
 	public void setNumeroCarteiraTrabalho(Integer numeroCarteiraTrabalho) {
 		this.numeroCarteiraTrabalho = numeroCarteiraTrabalho;
 	}
-    
-    
 }

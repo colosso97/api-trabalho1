@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import org.serratec.backend.entity.VendedorAutonomo;
 
 public class VendedorAutonomoRequestDTO {
     @NotBlank(message = "O nome do vendedor não pode ser nulo ou vazio.")
@@ -22,6 +23,9 @@ public class VendedorAutonomoRequestDTO {
 
     @NotNull(message = "A comissão do vendedor não pode ser nula.")
     private Double comissao;
+  
+  public VendedorAutonomoRequestDTO(){
+  }
 
     public VendedorAutonomoRequestDTO(VendedorAutonomo vendedorAutonomo) {
         this.nome = vendedorAutonomo.getNome();
@@ -61,6 +65,4 @@ public class VendedorAutonomoRequestDTO {
 	public void setComissao(Double comissao) {
 		this.comissao = comissao;
 	}
-    
-    
 }
