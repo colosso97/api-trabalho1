@@ -36,7 +36,7 @@ public class VendedorEmpresaService {
 	            VendedorEmpresa vendedorEmpresa = v.get();
 	            return new VendedorEmpresaResponseDTO(vendedorEmpresa.getId(), vendedorEmpresa.getNome(), vendedorEmpresa.getEmail(), vendedorEmpresa.getSalario(), vendedorEmpresa.getNumeroCarteiraTrabalho(), vendedorEmpresa.getDataAdmissao());
 	        }
-	        throw new VendedorEmpresaException("O vendedor autonomo não foi encontrado baseado na busca por id.");
+	        throw new VendedorEmpresaException("O vendedor empresa não foi encontrado baseado na busca por id.");
 	    }
 
 	    public VendedorEmpresaResponseDTO adicionar(VendedorEmpresaRequestDTO dto){
@@ -49,7 +49,14 @@ public class VendedorEmpresaService {
 	        
 	        vendedorEmpresaRepository.save(VendedorEmpresa);
 
-	        return new VendedorEmpresaResponseDTO(VendedorEmpresa.getId(), VendedorEmpresa.getNome(), VendedorEmpresa.getEmail(), VendedorEmpresa.getSalario(),VendedorEmpresa.getNumeroCarteiraTrabalho(), VendedorEmpresa.getDataAdmissao());
+	        return new VendedorEmpresaResponseDTO(
+					VendedorEmpresa.getId(),
+					VendedorEmpresa.getNome(),
+					VendedorEmpresa.getEmail(),
+					VendedorEmpresa.getSalario(),
+					VendedorEmpresa.getNumeroCarteiraTrabalho(),
+					VendedorEmpresa.getDataAdmissao()
+			);
 	    }
 	    
 	    public VendedorEmpresaResponseDTO atualizar(Long id ,VendedorEmpresaRequestDTO dto ) {
@@ -61,8 +68,18 @@ public class VendedorEmpresaService {
 	    		vendedorEmpresa.setSalario(dto.getSalario());
 	    		vendedorEmpresa.setNumeroCarteiraTrabalho(dto.getNumeroCarteiraTrabalho());
 	    		vendedorEmpresa.setDataAdmissao(vendedorEmpresa.getDataAdmissao());
+				vendedorEmpresaRepository.save(vendedorEmpresa);
+
+				return new VendedorEmpresaResponseDTO(
+						vendedorEmpresa.getId(),
+						vendedorEmpresa.getNome(),
+						vendedorEmpresa.getEmail(),
+						vendedorEmpresa.getSalario(),
+						vendedorEmpresa.getNumeroCarteiraTrabalho(),
+						vendedorEmpresa.getDataAdmissao()
+				);
 	    	}
-	    	throw new VendedorEmpresaException("O vendedor autonomo não foi encontrado baseado na busca por id.");
+	    	throw new VendedorEmpresaException("O vendedor empresa não foi encontrado baseado na busca por id.");
 	    }
 	    
 	    
@@ -71,7 +88,7 @@ public class VendedorEmpresaService {
 	        if(v.isPresent()){
 	            vendedorEmpresaRepository.deleteById(id);
 	        }
-	        throw new VendedorEmpresaException("O vendedor autonomo não foi encontrado baseado na busca por id.");
+	        throw new VendedorEmpresaException("O vendedor empresa não foi encontrado baseado na busca por id.");
 	    }
 	    
 	    public List<VendedorEmpresaResponseDTO> adicionarLista(List<VendedorEmpresaRequestDTO> vendedoresDTO){

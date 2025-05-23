@@ -22,8 +22,6 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/empresas")
 public class VendedorEmpresaController {
-
-
 	@Autowired
 	private VendedorEmpresaService service;
 	
@@ -36,8 +34,7 @@ public class VendedorEmpresaController {
 	public ResponseEntity<VendedorEmpresaResponseDTO> inserir(@RequestBody VendedorEmpresaRequestDTO dto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.adicionar(dto));	
 	}
-	
-	
+
 	@GetMapping("{id}")
 	public ResponseEntity<VendedorEmpresaResponseDTO> listarPorId(@PathVariable Long id){
 		return ResponseEntity.ok().body(service.listarPorId(id));
@@ -58,10 +55,4 @@ public class VendedorEmpresaController {
 	public ResponseEntity<List<VendedorEmpresaResponseDTO>> adicionarLista(@Valid @RequestBody List<VendedorEmpresaRequestDTO> vendedoresDTO){
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.adicionarLista(vendedoresDTO));
 	}
-	
-	
-	
-	
-	
-	
 }

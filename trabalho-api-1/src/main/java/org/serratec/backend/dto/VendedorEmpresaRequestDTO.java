@@ -7,8 +7,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import org.serratec.backend.entity.VendedorEmpresa;
-
 public class VendedorEmpresaRequestDTO {
     @NotBlank(message = "O nome do vendedor não pode ser nulo ou vazio.")
     private String nome;
