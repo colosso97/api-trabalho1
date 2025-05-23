@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Vendedor {
+public class Vendedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;

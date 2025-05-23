@@ -51,8 +51,6 @@ public class VendedorAutonomoService {
 
     public List<VendedorAutonomoResponseDTO> adicionarLista(List<VendedorAutonomoRequestDTO> vendedoresDTO){
         List<VendedorAutonomo> vendedoresEntity = new ArrayList<>();
-        List<VendedorAutonomoResponseDTO> vendedoresResponseDTO = new ArrayList<>();
-
         for(VendedorAutonomoRequestDTO vendedorDTO : vendedoresDTO){
             VendedorAutonomo vendedorAutonomo = new VendedorAutonomo();
             vendedorAutonomo.setNome(vendedorDTO.getNome());
@@ -60,11 +58,21 @@ public class VendedorAutonomoService {
             vendedorAutonomo.setSalario(vendedorDTO.getSalario());
             vendedorAutonomo.setComissao(vendedorDTO.getComissao());
             vendedoresEntity.add(vendedorAutonomo);
-
-            vendedoresResponseDTO.add(new VendedorAutonomoResponseDTO(vendedorAutonomo.getId(), vendedorAutonomo.getNome(), vendedorAutonomo.getEmail(), vendedorAutonomo.getSalario(), vendedorAutonomo.getComissao()));
         }
 
         vendedorAutonomoRepository.saveAll(vendedoresEntity);
+
+        List<VendedorAutonomoResponseDTO> vendedoresResponseDTO = new ArrayList<>();
+        for (VendedorAutonomo vendedorSalvo : vendedoresEntity) {
+            VendedorAutonomoResponseDTO responseDto = new VendedorAutonomoResponseDTO(
+                    vendedorSalvo.getId(),
+                    vendedorSalvo.getNome(),
+                    vendedorSalvo.getEmail(),
+                    vendedorSalvo.getSalario(),
+                    vendedorSalvo.getComissao()
+            );
+            vendedoresResponseDTO.add(responseDto);
+        }
         return vendedoresResponseDTO;
     }
 
