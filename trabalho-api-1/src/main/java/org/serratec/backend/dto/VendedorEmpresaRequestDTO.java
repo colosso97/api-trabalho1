@@ -1,17 +1,14 @@
 package org.serratec.backend.dto;
 
+import org.serratec.backend.entity.VendedorEmpresa;
+
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 import org.serratec.backend.entity.VendedorEmpresa;
 
-@NoArgsConstructor
-@Getter
-@Setter
 public class VendedorEmpresaRequestDTO {
     @NotBlank(message = "O nome do vendedor não pode ser nulo ou vazio.")
     private String nome;
@@ -26,6 +23,9 @@ public class VendedorEmpresaRequestDTO {
 
     @NotNull(message = "O número da carteira de trabalho do vendedor não pode ser nulo.")
     private Integer numeroCarteiraTrabalho;
+  
+  public VendedorEmpresaRequestDTO(){
+  }
 
     public VendedorEmpresaRequestDTO(VendedorEmpresa vendedorEmpresa) {
         this.nome = vendedorEmpresa.getNome();
@@ -33,4 +33,36 @@ public class VendedorEmpresaRequestDTO {
         this.salario = vendedorEmpresa.getSalario();
         this.numeroCarteiraTrabalho = vendedorEmpresa.getNumeroCarteiraTrabalho();
     }
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+	public Integer getNumeroCarteiraTrabalho() {
+		return numeroCarteiraTrabalho;
+	}
+
+	public void setNumeroCarteiraTrabalho(Integer numeroCarteiraTrabalho) {
+		this.numeroCarteiraTrabalho = numeroCarteiraTrabalho;
+	}
 }

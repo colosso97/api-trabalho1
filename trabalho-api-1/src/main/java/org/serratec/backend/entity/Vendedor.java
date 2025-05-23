@@ -10,13 +10,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
-@Getter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Vendedor {
@@ -30,4 +26,46 @@ public class Vendedor {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "vendedor")
 	protected List<LancamentoVendas> lancamentoDeVendas;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+	public List<LancamentoVendas> getLancamentoDeVendas() {
+		return lancamentoDeVendas;
+	}
+
+	public void setLancamentoDeVendas(List<LancamentoVendas> lancamentoDeVendas) {
+		this.lancamentoDeVendas = lancamentoDeVendas;
+	}
+	
+	
 }
