@@ -16,9 +16,6 @@ import lombok.Setter;
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class VendedorEmpresa extends Vendedor {
-
 	private Integer numeroCarteiraTrabalho;
 	private LocalDate dataAdmissao;
-	
-	
 }
