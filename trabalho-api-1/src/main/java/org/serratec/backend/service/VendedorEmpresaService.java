@@ -82,7 +82,6 @@ public class VendedorEmpresaService {
 	    	throw new VendedorEmpresaException("O vendedor empresa não foi encontrado baseado na busca por id.");
 	    }
 	    
-	    
 	    public Void deletar(Long id){
 	        Optional<VendedorEmpresa> v = vendedorEmpresaRepository.findById(id);
 	        if(v.isPresent()){

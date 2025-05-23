@@ -56,6 +56,4 @@ public class LancamentoVendas {
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}
-	
-	
 }
